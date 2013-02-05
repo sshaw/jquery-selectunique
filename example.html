@@ -1,0 +1,257 @@
+<!doctype html>
+<html>
+<head>
+  <title>SelectUnique jQuery Plugin</title>
+  <style type="text/css">
+    .section {     
+      border-bottom: 1px solid #eee;
+      padding-bottom: 4px;
+    }
+       
+    .demo textarea {
+      width: 500px;
+      height: 65px;
+    }
+
+    .controls { 
+      padding: 10px 0 4px;
+    }
+
+    .controls a { 
+      margin-right: 4px;
+    }
+  </style>
+
+  <script type="text/javascript" src="jquery-1.9.0.min.js"></script>
+  <script type="text/javascript" src="jquery.selectunique.js"></script>
+  <script type="text/javascript">
+    $(document).ready(function() {
+      $('.code a').click(function() { 
+        $(this).parent().next().toggle();
+	return false;
+      });
+
+      $('.questions').selectunique();
+
+      $('.questions a.selected').click(function() {
+	$('.questions .demo textarea').html(
+	  JSON.stringify($('.questions').selectunique('selected'))
+        );
+	return false;
+      });
+
+      $('.questions a.remaining').click(function() {
+	$('.questions .demo textarea').html(
+	  JSON.stringify($('.questions').selectunique('remaining'))
+        );
+	return false;
+      });
+
+      $('.favorites').selectunique({
+	ignoreOption: function(opt) { return opt.val().match(/^#/); }
+      });
+
+      $('.favorites a.selected').click(function() {
+	$('.favorites .demo textarea').html(
+	  JSON.stringify($('.favorites').selectunique('selected'))
+        );
+	return false;
+      });
+
+      $('.favorites a.remaining').click(function() {
+	$('.favorites .demo textarea').html(
+	  JSON.stringify($('.favorites').selectunique('remaining'))
+        );
+	return false;
+      });
+
+    });
+  </script>
+</head>
+<body>
+  <h1>jQuery SelectUnique Plugin</h1> 
+  <div class="section">    
+    <p>Given a group of select fields with the same options, SelectUnique will remove an option from the other select fields when it's selected, and put it back when it's changed.</p>
+    <ul>
+      <li><a href="http://github.com/sshaw/jquery-selectunique">Download</a></li>
+      <li><a href="#usage">Usage</a></li>
+      <li><a href="#demo">Demo</a></li>
+    </ul>
+  </div>  
+  <div id="usage" class="section">    
+    <h2>Usage</h2>
+    <pre>
+&lt;script type="text/javascript" src="jquery-1.7.0.min.js"&gt;&lt;/script&gt;
+&lt;script type="text/javascript" src="jquery.selectunique.js"&gt;&lt;/script&gt;      
+
+$(selector).selectunique();
+    </pre>
+    <p>SelectUnique requires jQuery <strong>1.7</strong>.</p>
+  </div>
+  <div id="demo" class="section questions">    
+    <h2>Demo</h2>
+    <h3>Answer three questions</h3>
+    <div class="demo">
+      <div>
+	<select>
+	  <option></option>
+	  <option>First car</option>
+	  <option>Highschool's name</option>
+	  <option>Mom's birthday</option>
+	  <option>Dad's middle name</option>
+	  <option>First pet</option>
+	</select>
+	<input type="text" size="35"/>
+      </div>
+      <div>
+	<select>
+	  <option></option>
+	  <option>First car</option>
+	  <option>Highschool's name</option>
+	  <option>Mom's birthday</option>
+	  <option>Dad's middle name</option>
+	  <option>First pet</option>
+	</select>
+	<input type="text" size="35"/>
+      </div>
+      <div>
+	<select>
+	  <option></option>
+	  <option>First car</option>
+	  <option>Highschool's name</option>
+	  <option>Mom's birthday</option>
+	  <option>Dad's middle name</option>
+	  <option>First pet</option>
+	</select>
+	<input type="text" size="35"/>
+      </div>
+      <div class="controls">
+	<a href="#" class="selected">Selected Options</a>
+	<a href="#" class="remaining">Remaining Options</a>
+      </div>
+      <div>
+	<textarea></textarea>
+      </div>      
+    </div>
+    <div class="code">
+      <small><a href="#">View Code</a></small>
+      <pre style="display:none">
+&lt;script type="text/javascript" src="jquery-1.9.0.min.js"&gt;&lt;/script&gt;
+&lt;script type="text/javascript" src="jquery.selectunique.js"&gt;&lt;/script&gt;      
+
+$('.questions').selectunique();
+	
+$('.questions a.selected').click(function() {
+  $('.questions .demo textarea').html(
+    JSON.stringify($('.questions').selectunique('selected'))
+  );
+
+  return false;
+});
+	
+$('.questions a.remaining').click(function() {
+  $('.questions .demo textarea').html(
+    JSON.stringify($('.questions').selectunique('remaining'))
+  );
+
+  return false;
+});
+      </pre>
+    </div>
+  </div>
+  <div class="section favorites">
+    <h3>Pick your favorite countries</h3>
+    <div class="demo">
+    <select>
+      <option>#1</option>
+      <option value="BR">Brazil</option>
+      <option value="CA">Canada</option>
+      <option value="FR">France</option>
+      <option value="MX">Mexico</option>
+      <option value="RU">Russia</option>
+      <option value="SP">Spain</option>
+      <option value="GB">Great Britton</option>
+      <option value="US">United States</option>
+    </select>
+    <select>
+      <option>#2</option>
+      <option value="BR">Brazil</option>
+      <option value="CA">Canada</option>
+      <option value="FR">France</option>
+      <option value="MX">Mexico</option>
+      <option value="RU">Russia</option>
+      <option value="SP">Spain</option>
+      <option value="GB">Great Britton</option>
+      <option value="US">United States</option>
+    </select>
+    <select>
+      <option>#3</option>
+      <option value="BR">Brazil</option>
+      <option value="CA">Canada</option>
+      <option value="FR">France</option>
+      <option value="MX">Mexico</option>
+      <option value="SP">Spain</option>
+      <option value="RU">Russia</option>
+      <option value="GB">Great Britton</option>
+      <option value="US">United States</option>
+    </select>
+    <select>
+      <option>#4</option>
+      <option value="BR">Brazil</option>
+      <option value="CA">Canada</option>
+      <option value="FR">France</option>
+      <option value="MX">Mexico</option>
+      <option value="RU">Russia</option>
+      <option value="SP">Spain</option>
+      <option value="GB">Great Britton</option>
+      <option value="US">United States</option>
+    </select>
+    <select>
+      <option>#5</option>
+      <option value="BR">Brazil</option>
+      <option value="CA">Canada</option>
+      <option value="FR">France</option>
+      <option value="MX">Mexico</option>
+      <option value="RU">Russia</option>
+      <option value="SP">Spain</option>
+      <option value="GB">Great Britton</option>
+      <option value="US">United States</option>
+    </select>
+    <div class="controls">
+      <a href="#" class="selected">Selected Options</a>
+      <a href="#" class="remaining">Remaining Options</a>
+    </div>
+    <div>
+      <textarea></textarea>
+    </div>
+    </div>
+    <div class="code">
+      <small><a href="#">View Code</a></small>
+      <pre style="display:none">
+&lt;script type="text/javascript" src="jquery-1.9.0.min.js"&gt;&lt;/script&gt;
+&lt;script type="text/javascript" src="jquery.selectunique.js"&gt;&lt;/script&gt;      
+
+$('.favorites').selectunique({
+  ignoreOption: function(opt) { return opt.val().match(/^#/); }
+});
+
+$('.favorites a.selected').click(function() {
+  $('.favorites .demo textarea').html(
+    JSON.stringify($('.favorites').selectunique('selected'))
+  );
+
+  return false;
+});
+
+$('.favorites a.remaining').click(function() {
+  $('.favorites .demo textarea').html(
+    JSON.stringify($('.favorites').selectunique('remaining'))
+  );
+
+  return false;
+});
+      </pre>
+    </div>
+  </div>
+</body>
+</html>
