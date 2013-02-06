@@ -2,7 +2,7 @@
 
 Given a group of select fields with the same options, SelectUnique will remove an option from the other select fields when it's selected, and put it back when it's changed.
 
-[Demo](http://sshaw.github.com/jquery-selectunique)
+[Demo](http://sshaw.github.com/jquery-selectunique#demo)
 
 ## Usage
 
