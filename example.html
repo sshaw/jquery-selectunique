@@ -87,6 +87,53 @@
 $(selector).selectunique();
     </pre>
     <p>SelectUnique requires jQuery <strong>1.7</strong>.</p>
+
+    <h3>Options</h3>
+    
+    <h4><code>ignoreOption</code></h4>
+    
+    <pre><code>$(selector).selectunique({ 
+    ignoreOption: function(option) { return option.val() == 'ignore_me_buddy' } 
+});
+</code></pre>
+    
+    <p>Instruct the plugin to not manage the given option. The <code>option</code>
+    argument passed to the function is a jQuery object. </p>
+    
+    <h3>Methods</h3>
+    
+    <h4><code>refresh</code></h4>
+    
+    <pre><code>$(selector).selectunique('refresh');
+</code></pre>
+    
+    <p>Refresh the state of the select fields given by <code>selector</code>. 
+    This is useful of you're adding and/or removing select fields via JavaScript.</p>
+    
+    <h4><code>remaining</code></h4>
+    
+    <pre><code>var opts = $(selector).selectunique('remaining');
+$.each(opts, function() { 
+    console.log('text: ' + this.text + ' value: ' + this.value);
+});
+</code></pre>
+
+    <p>An array of remaing options. I.e., options still  available for selecting. Returns an empty array if
+    no options are available. Each element is an <code>Object</code> with a <code>text</code>
+    and <code>value</code> property.</p>
+        
+    <h4><code>selected</code></h4>
+    
+    <pre><code>var opts = $(selector).selectunique('selected');
+$.each(opts, function() { 
+    console.log('text: ' + this.text + ' value: ' + this.value);
+});
+</code></pre>
+    
+    <p>An array of options that have been selected. Returns an empty array if
+no options have been selected. Each element is an <code>Object</code> with a <code>text</code>
+and <code>value</code> property. </p>
+   
   </div>
   <div id="demo" class="section questions">    
     <h2>Demo</h2>
