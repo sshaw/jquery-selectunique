@@ -35,13 +35,16 @@
 	    }
 
 	    self._optionSelected(select);
-	    select.data(KEY_SELECTED, self._ignoreOption(selOption) ? null : self._cloneOption(selOption))
+	    //select.data(KEY_SELECTED, self._ignoreOption(selOption) ? null : self._cloneOption(selOption))
 	},
 
 	_optionSelected: function(select) {
 	    var self = this, selOption = select.find(':selected');
 
-	    if(!self._ignoreOption(selOption)) {
+	    if(self._ignoreOption(selOption)) {
+		select.data(KEY_SELECTED, null);
+	    }
+	    else {
 		select.data(KEY_SELECTED, self._cloneOption(selOption));
 		self.q.not(select).each(function() {
 		    var thisSelect = $(this);
@@ -59,10 +62,9 @@
 		});
 	    }
 
-	    // if(self.available().length == 0) {
-	    // 	// full, optionsTaken, empty
-	    // 	//self.q.trigger('uniqueSelect.options')
-	    // }
+	    if(self.remaining().length == 0) {
+	    	self.q.trigger('none')
+	    }
 	},
 
 	_ignoreOption: function(option) {
@@ -76,12 +78,13 @@
 	},
 
 	_sortOptions: function(select) {
-	    var self = this, options = select.find('option');
+	    var self = this, options = select.find('option'), val = select.val();
 	    options.sort(function(a,b) {
 		return self.optionIndex[self._optionId(a)] - self.optionIndex[self._optionId(b)];
 	    });
 
 	    select.html(options);
+	    select.val(val);
 	},
 
 	_optionId: function(option) {
@@ -115,8 +118,6 @@
 		self.optionIndex[self._optionId(this)] = this.index;
 	    });
 
-	    console.log(self.optionIndex);
-
 	    self.q.has(':selected').each(function() {
 		self._optionSelected($(this));
 	    });
@@ -130,8 +131,8 @@
 	},
 
 	remaining: function() {
-	    var available = this._uniqueOptions(this.q.find('option:not(:selected)'));
-	    return $.map(available, function(e) {
+	    var remaining = this._uniqueOptions(this.q.find('option:not(:selected)'));
+	    return $.map(remaining, function(e) {
 		return { value: e.value, text: e.text };
 	    });
 	}
