@@ -6,12 +6,12 @@ Given a group of select fields with the same options, SelectUnique will remove a
 
 ## Usage
 
-SelectUnique requires jQuery 1.7.
-
     <script type="text/javascript" src="jquery-1.7.0.min.js"></script>
     <script type="text/javascript" src="jquery.selectunique.js"></script>
 
     $(selector).selectunique();
+
+SelectUnique requires jQuery *1.7.1* or later.  Option without text will be ignored. 
 
 ### Options
 

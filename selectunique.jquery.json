@@ -14,7 +14,7 @@
         }
     ],
     "dependencies": {
-        "jquery": ">=1.7"
+        "jquery": ">=1.7.1"
     },
     "description": "Given a group of select fields with the same options, SelectUnique will remove an option from the other fields when it's selected, and put it back when it's changed.",
     "keywords": [
@@ -24,10 +24,12 @@
         "form",
         "chained"
     ],
-    "homepage": "https://github.com/sshaw/jquery-selectunique",
+    "homepage": "https://sshaw.github.com/jquery-selectunique",
+    "doc": "https://sshaw.github.com/jquery-selectunique#usage",
+    "demo": "https://sshaw.github.com/jquery-selectunique#demo",
     "bugs": "https://github.com/sshaw/jquery-selectunique/issues",
     "files": [
         "jquery.selectunique.js",
-        "jquery.selectunique.min.js",
+        "jquery.selectunique.min.js"
     ]
 }
