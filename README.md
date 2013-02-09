@@ -11,7 +11,7 @@ Given a group of select fields with the same options, SelectUnique will remove a
 
     $(selector).selectunique();
 
-SelectUnique requires jQuery *1.7.1* or later.  Option without text will be ignored. 
+SelectUnique requires jQuery *1.7.1* or later.  Options without text will be ignored. 
 
 ### Options
 

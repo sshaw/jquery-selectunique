@@ -15,7 +15,7 @@
     var KEY_SELECTED = NS + '-selected';
 
     var SelectUnique = function(q, options) {
-        this.q = q.find('option').closest('select');  // We need a set containing the select elements
+        this.q = q.find('option').parent('select');  // We need a set containing the select elements
         this.options = $.extend({}, options);
         this.refresh();
     };
@@ -63,7 +63,7 @@
         },
 
         _ignoreOption: function(option) {
-            return option.val().trim() == '' || ($.isFunction(this.options.ignoreOption) && this.options.ignoreOption(option));
+            return $.trim(option.val()) == '' || ($.isFunction(this.options.ignoreOption) && this.options.ignoreOption(option));
         },
 
         _cloneOption: function(option) {
