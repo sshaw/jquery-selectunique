@@ -1,6 +1,6 @@
 {
     "name": "selectunique",
-    "version": "0.0.2",
+    "version": "0.0.3",
     "title": "SelectUnique",
     "author": {
         "name": "Skye Shaw",
@@ -24,10 +24,10 @@
         "form",
         "chained"
     ],
-    "homepage": "https://sshaw.github.com/jquery-selectunique",
-    "doc": "https://sshaw.github.com/jquery-selectunique#usage",
-    "demo": "https://sshaw.github.com/jquery-selectunique#demo",
-    "bugs": "https://github.com/sshaw/jquery-selectunique/issues",
+    "homepage": "http://sshaw.github.com/jquery-selectunique",
+    "doc": "http://sshaw.github.com/jquery-selectunique#usage",
+    "demo": "http://sshaw.github.com/jquery-selectunique#demo",
+    "bugs": "http://github.com/sshaw/jquery-selectunique/issues",
     "files": [
         "jquery.selectunique.js",
         "jquery.selectunique.min.js"

@@ -1,5 +1,5 @@
 /*
-  jquery-selectunique.js v0.0.2
+  jquery-selectunique.js v0.0.3
 
   Given a group of select fields with the same options, SelectUnique will remove an option from the
   other select fields when it's selected, and put it back when it's changed.
