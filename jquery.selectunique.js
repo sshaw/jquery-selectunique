@@ -1,5 +1,5 @@
 /*
-  jquery-selectunique.js v0.0.3
+  jquery-selectunique.js v0.1.0
 
   Given a group of select fields with the same options, SelectUnique will remove an option from the
   other select fields when it's selected, and put it back when it's changed.
@@ -121,15 +121,16 @@
         selected: function() {
             var selected = this._uniqueOptions(this.q.find(':selected'));
             return $.map(selected, function(e) {
-                return { value: e.value, text: e.text };
+                return e.cloneNode(true);
             });
         },
 
         remaining: function() {
             var remaining = this._uniqueOptions(this.q.find('option:not(:selected)'));
             return $.map(remaining, function(e) {
-                return { value: e.value, text: e.text };
+                return e.cloneNode(true);
             });
+
         }
     };
 

@@ -41,8 +41,7 @@ This is useful of you're adding and/or removing select fields via JavaScript.
 	});
 
 An array of remaing options. I.e., options still  available for selecting. Returns an empty array if
-no options are available. Each element is an `Object` with a `text`
-and `value` property. 
+no options are available. Each element is an `HTMLOptionElement`.
 
 #### `selected`
 
@@ -52,8 +51,6 @@ and `value` property.
 	});
 
 An array of options that have been selected. Returns an empty array if
-no options have been selected. Each element is an `Object` with a `text`
-and `value` property. 
+no options have been selected. Each element is an `HTMLOptionElement` property is `false`.
 
-	
 

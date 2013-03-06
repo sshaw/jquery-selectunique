@@ -118,9 +118,8 @@ $.each(opts, function() {
 });
 </code></pre>
 
-    <p>An array of remaing options. I.e., options still  available for selecting. Returns an empty array if
-    no options are available. Each element is an <code>Object</code> with a <code>text</code>
-    and <code>value</code> property.</p>
+    <p>An array of remaing options. I.e., options still available for selecting. Returns an empty array if
+    no options are available. Each element is an <code>HTMLOptionElement</code>.</p>
         
     <h4><code>selected</code></h4>
     
@@ -131,9 +130,9 @@ $.each(opts, function() {
 </code></pre>
     
     <p>An array of options that have been selected. Returns an empty array if
-no options have been selected. Each element is an <code>Object</code> with a <code>text</code>
-and <code>value</code> property. </p>
-   
+no options have been selected. Each element is an <code>HTMLOptionElement</code>.
+While these nodes are currently selected, their <code>selected</code>
+    property is <code>false</code></p>.
   </div>
   <div id="demo" class="section questions">    
     <h2>Demo</h2>
