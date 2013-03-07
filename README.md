@@ -51,6 +51,5 @@ no options are available. Each element is an `HTMLOptionElement`.
 	});
 
 An array of options that have been selected. Returns an empty array if
-no options have been selected. Each element is an `HTMLOptionElement` property is `false`.
-
-
+no options have been selected. Each element is an `HTMLOptionElement`.
+While these nodes are currently selected, their `selected` property is `false`.

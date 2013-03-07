@@ -137,12 +137,14 @@
     $.fn.selectunique = function(options) {
         if(this.has('select,option').length) {
             var uniq = this.data(NS);
-            if(!uniq)
-                this.data(NS, uniq = new SelectUnique(this, options));
-
-            if(typeof options == "string" && uniq[options])
+            if(!uniq) 
+                this.data(NS, uniq = new SelectUnique(this, options));	    
+            else if(typeof options == "string" && uniq[options])
                 return uniq[options]();
+	    else 
+		$.error("selectunique: no such method '" + options + "'")
         }
+
         return this;
     };
 })(window.jQuery);
